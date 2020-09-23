@@ -62,7 +62,7 @@ int querySize(query* query){
     return query->size;
 }
 
-// end realization of query
+
 
 void help(void){
     printf("Commands for work with query:\n1 - push in query integer value.\n2 - pop from query integer value.\n");
