@@ -13,14 +13,14 @@ typedef struct{
 } query;
 
 node* create_node (int val){
-    node* new_node = (node*)malloc(sizeof(node));
+    node* new_node = (node*) malloc(sizeof(node));
     new_node->val = val;
     new_node->next = NULL;
     return new_node;
 }
 
 query* createQuery(void){
-    query* new_query = (query*)malloc(sizeof(query));
+    query* new_query = (query*) malloc(sizeof(query));
     new_query->start = new_query->end = NULL;
     new_query->size = 0;
     return new_query;
@@ -62,11 +62,15 @@ int querySize(query* query){
     return query->size;
 }
 
-
+// end realization of query
 
 void help(void){
-    printf("Commands for work with query:\n1 - push in query integer value.\n2 - pop from query integer value.\n");
-     printf("\n3 - size of query.\n4 - query is empty.\n0 - exit from programm.\n");
+    printf("Commands for work with query:\n");
+    printf("1 - push in query integer value.\n");
+    printf("2 - pop from query integer value.\n");
+    printf("3 - size of query.\n");
+    printf("4 - query is empty.\n");
+    printf("0 - exit from programm.\n");
 }
 
 int main(void) {
@@ -102,4 +106,3 @@ int main(void) {
         }
     }
     return 0;
-}
