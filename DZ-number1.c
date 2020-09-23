@@ -65,7 +65,8 @@ int querySize(query* query){
 // end realization of query
 
 void help(void){
-    printf("Commands for work with query:\n1 - push in query integer value.\n2 - pop from query integer value.\n3 - size of query.\n4 - query is empty.\n0 - exit from programm.\n");
+    printf("Commands for work with query:\n1 - push in query integer value.\n2 - pop from query integer value.\n");
+     printf("\n3 - size of query.\n4 - query is empty.\n0 - exit from programm.\n");
 }
 
 int main(void) {
