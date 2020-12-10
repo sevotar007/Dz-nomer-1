@@ -11,7 +11,7 @@ typedef struct{
     bool isDirected;
 } graph;
 
-graph* create_qraph(uint64_t size){
+graph* create_graph(uint64_t size){
     graph* new_graph = (graph*)malloc(sizeof(graph));
     new_graph->size = size;
     new_graph->isWeighted = false;
@@ -50,7 +50,7 @@ uint64_t find_minimal_power(graph* current_graph){
     return power;
 }
 
-void delete_пraph(graph* current_graph){
+void delete_graph(graph* current_graph){
     for (uint64_t i = 0; i < current_graph->size; ++i)
         free(current_graph->graph[i]);
     free(current_graph->graph);
@@ -104,7 +104,7 @@ uint64_t print_dot(FILE* fileptr, graph* current_graph){
     return lines;
 }
 
-uint64_t dfs(graph* current_qraph, bool* color,uint64_t pos){
+uint64_t dfs(graph* current_graph, bool* color,uint64_t pos){
     uint64_t quantity_of_lines = 1;
     color[pos] = true;
     for (uint64_t i = 0; i < current_graph->size; ++i) {
@@ -130,7 +130,7 @@ int main(int argc, char *argv[]){
     uint64_t quantity;
     scanf("%" SCNu64 "", &quantity);
     graph* graph = create_graph(quantity);
-    input_graph(qraph);
+    input_graph(graph);
     if (check_connecions(graph)) {
         printf("Qraph is connecting\n");//
     } else {
@@ -144,12 +144,12 @@ int main(int argc, char *argv[]){
         add_edge(graph, from, to);
         puts("Edge is added in graph");
     }
-    printf("Minimal power of vertex is %" PRIu64 "\n", find_minimal_power(qraph));
+    printf("Minimal power of vertex is %" PRIu64 "\n", find_minimal_power(graph));
     char* file = (char*) malloc(256*sizeof(char));
     printf("File name(minimum 4 symbols):\n");
     scanf("%s",file);
     FILE* f = fopen(file, "w");
-    print_dot(f, qraph);
+    print_dot(f, graph);
     fclose(f);
 
     char* term = (char*)calloc(500, sizeof(char));
