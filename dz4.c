@@ -40,13 +40,13 @@ uint64_t find_minimal_power(graph* current_graph){
                 }
             }
         }
-        //printf("%" PRIu64 " %" PRIu64 "\n", i, count_power);
+        printf("%" PRIu64 " %" PRIu64 "\n", i, count_power);
         if (count_power < power) {
             power = count_power;
             pos = i;
         }
     }
-    //return pos;
+    return pos;
     return power;
 }
 
@@ -121,7 +121,7 @@ bool check_connecions(graph* current_graph) {
     free(color);
     if (quantity_of_lines < current_graph->size)
         return false;
-    else 
+    else
         return true;
 }
 
